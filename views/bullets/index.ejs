@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Here is your Bullet Journal Overview</h1>
+            <p>
+                <a class="btn btn-primary btn-large" href="/bullet/new">Add a new Bullet</a>
+            </p>
+        </div>
+    </header>
+    
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% bullets.forEach(function(bullet){ %>
+            <div class="col-md-3 col-sm-6>">
+                <div class="thumbnail">
+                    <div ="caption">
+                        <ul>
+                            <li><%= bullet.task %></li>
+                            <li><%= bullet.description.substring(0,20) %>...</li>
+                            <li><%= bullet.createdDate %></li>
+                            <li><%= bullet.dueDate %></li>
+                        </ul>
+                    </div>
+                    <p>
+                        <a href="/bullet/<%= bullet._id %>" class="btn btn-primary">View Bullet</a>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

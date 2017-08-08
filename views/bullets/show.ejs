@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<h1><%= bullet.task %></h1>
+<p><%= bullet.description %></p>
+<p><%= bullet.createdDate.toDateString() %></p>
+<p><%= bullet.dueDate.toDateString() %></p>
+
+<p>
+    <a class="btn btn-success" href="/bullet/<%= bullet._id %>/notes/new">Add New Note</a>
+</p>
+
+<% bullet.notes.forEach(function(note){ %>
+    <p>
+        <%= console.log(note.text) %>
+    </p>
+<% }) %>
+
+<% include ../partials/footer %>

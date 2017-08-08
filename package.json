@@ -1,0 +1,25 @@
+{
+  "name": "bulletjournal",
+  "version": "1.0.0",
+  "description": "This is my bullet journal to get shit done",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GrugLife/bulletJournal.git"
+  },
+  "author": "grugLife",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrugLife/bulletJournal/issues"
+  },
+  "homepage": "https://github.com/GrugLife/bulletJournal#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.6"
+  }
+}
