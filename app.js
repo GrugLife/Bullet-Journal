@@ -9,6 +9,7 @@ var express                 = require("express"),
 mongoose.connect("mongodb://localhost/bullet");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 seedDB();
 
 
@@ -51,10 +52,10 @@ app.get("/bullet/new", function(req, res) {
 
 // SHOW ROUTE
 app.get("/bullet/:id", function(req, res){
-    Bullets.findById(req.params.id, function(err, foundBullet){
+    Bullets.findById(req.params.id).populate("notes").exec(function(err, foundBullet){
         if(err){
             console.log(err);
-        } else{
+        } else {
             res.render("bullets/show", {bullet: foundBullet});
         }
     });
