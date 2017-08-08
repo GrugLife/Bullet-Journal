@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/GrugLife/bulletJournal.git"
+    "url": "git+ssh://git@github.com/GrugLife/Bullet-Journal.git"
   },
   "author": "grugLife",
   "license": "ISC",
@@ -20,6 +20,10 @@
     "body-parser": "^1.17.2",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
-    "mongoose": "^4.11.6"
+    "express-session": "^1.15.5",
+    "mongoose": "^4.11.6",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.1.0"
   }
 }
