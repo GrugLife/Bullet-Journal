@@ -2,8 +2,11 @@ var express                 = require("express"),
     app                     = express(),
     bodyParser              = require("body-parser"),
     mongoose                = require("mongoose"),
+    cookieParser            = require("cookie-parser"),
+    flash                   = require("connect-flash"),
     passport                = require("passport"),
     LocalStrategy           = require("passport-local"),
+    methodOverride          = require("method-override"),
     Bullets                 = require("./models/bullet"),
     Note                    = require("./models/note"),
     User                    = require("./models/user"),
@@ -12,13 +15,14 @@ var express                 = require("express"),
 // requiring routes
 var noteRoutes              = require("./routes/note"),
     bulletRoutes            = require("./routes/bullet"),
-    indexRoutes             = require("./routes/index")
+    indexRoutes             = require("./routes/index");
 
 mongoose.connect("mongodb://localhost/bullet");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-seedDB();
+app.use(methodOverride("_method"));
+app.use(cookieParser('secret'));
 
 // PASSPORT CONFIG
 app.use(require("express-session")({
@@ -26,6 +30,8 @@ app.use(require("express-session")({
     resave: false,
     saveUninitizalized: false
 }));
+
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -34,6 +40,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req,res, next){
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 
