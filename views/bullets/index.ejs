@@ -4,6 +4,7 @@
     <header class="jumbotron">
         <div class="container">
             <h1>Here is your Bullet Journal Overview</h1>
+            <p>The best app to get shit done</p>
             <p>
                 <a class="btn btn-primary btn-large" href="/bullet/new">Add a new Bullet</a>
             </p>
@@ -17,9 +18,9 @@
                     <div ="caption">
                         <ul>
                             <li><%= bullet.task %></li>
-                            <li><%= bullet.description.substring(0,20) %>...</li>
-                            <li><%= bullet.createdDate %></li>
-                            <li><%= bullet.dueDate %></li>
+                            <li><%= bullet.description.substring(0, 20) %>...</li>
+                            <li>Created Date:<%= bullet.createdDate.toDateString() %></li>
+                            <li>Due Date: <%= bullet.dueDate.toDateString() %></li>
                         </ul>
                     </div>
                     <p>
