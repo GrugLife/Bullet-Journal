@@ -1,14 +1,35 @@
 <% include ./partials/header %>
 
-<h1>Login!</h1>
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="username">'
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" value="Login">
-</form>
-<p>
-    <a href="/register">Sign Up</a>
-</p>
+<body id="login">
+<div class="container">
+
+      <form class="form-signin" action="/login" method="POST">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <label for="inputEmail" class="sr-only">Username</label>
+            <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+</div> <!-- /container -->
+</body>
+<!--<h1>Login!</h1>-->
+<!--<form action="/login" method="POST">-->
+<!--    <input type="text" name="username" placeholder="username">'-->
+<!--    <input type="password" name="password" placeholder="password">-->
+<!--    <input type="submit" value="Login">-->
+<!--</form>-->
+<!--<p>-->
+<!--    <a href="/register">Sign Up</a>-->
+<!--</p>-->
 
 
-<% include ./partials/footer %>
+<% include ./partials/footer %> 
+
+
