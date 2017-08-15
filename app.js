@@ -17,7 +17,8 @@ var noteRoutes              = require("./routes/note"),
     bulletRoutes            = require("./routes/bullet"),
     indexRoutes             = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/bullet");
+// mongoose.connect("mongodb://localhost/bullet");
+mongoose.connect("mongodb://greg:gruglife@ds017553.mlab.com:17553/bulletjournal");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
