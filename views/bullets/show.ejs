@@ -12,8 +12,13 @@
         
           <!-- List group -->
           <ul class="list-group">
+            <div class="text-right">
+            <a class="btn btn-success" href="/bullet/<%= bullet._id %>/notes/new">Add New Comment</a>
+            </div>
             <% bullet.notes.forEach(function(note){ %>
                 <li class="list-group-item">
+                    <strong><%= note.author.username %></strong>
+                    <span class="pull-right"><%= note.dateCreated.toDateString() %>
                     <%= note.text %>
                     <div class="text-right">
                         <a class="btn btn-xs btn-warning" href="/bullet/<%=bullet._id %>/notes/<%=note._id %>/edit">Edit</a>
