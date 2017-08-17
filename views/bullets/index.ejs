@@ -10,23 +10,20 @@
             </p>
         </div>
     </header>
-    
-    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+ 
+    <div class="container" style="display:flex; flex-wrap: wrap;">
         <% bullets.forEach(function(bullet){ %>
-            <div class="col-md-3 col-sm-6>">
-                <div class="thumbnail">
-                    <div ="caption">
-                        <ul>
-                            <li><%= bullet.task %></li>
-                            <li><%= bullet.description.substring(0, 20) %>...</li>
-                            <li>Created Date:<%= bullet.createdDate.toDateString() %></li>
-                            <li>Due Date: <%= bullet.dueDate.toDateString() %></li>
-                        </ul>
-                    </div>
-                    <p>
-                        <a href="/bullet/<%= bullet._id %>" class="btn btn-primary">View Bullet</a>
-                    </p>
-                </div>
+            <div class="col-md-4 col-sm-6>">
+
+                            <i class="fa fa-circle pull-left" aria-hidden="true"> <%= bullet.task %></i><br>
+                            <i class="fa fa-circle-o pull-left" aria-hidden="true"> <%= bullet.description.substring(0, 20) %>...</i><br>
+                            <i class="fa fa-calendar-o pull-left" aria-hidden="true"> Created Date: <%= bullet.createdDate.toDateString() %></i><br>
+                            <i class="fa fa-calendar-check-o pull-left" aria-hidden="true"> Due Date: <%= bullet.dueDate.toDateString() %></i><br>
+                        <p>
+                            <a href="/bullet/<%= bullet._id %>" class="btn btn-primary">View Bullet</a>
+                        </p>
+                    
+             
             </div>
         <% }); %>
     </div>
