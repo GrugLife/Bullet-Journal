@@ -5,6 +5,7 @@ var bulletSchema = new mongoose.Schema({
     description: String,
     createdDate: {type: Date, default: Date.now},
     dueDate: Date,
+    priority: String,
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
