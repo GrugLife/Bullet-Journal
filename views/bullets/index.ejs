@@ -20,8 +20,13 @@
                             <i class="fa fa-calendar-o pull-left" aria-hidden="true"> Created Date: <%= bullet.createdDate.toDateString() %></i><br>
                             <i class="fa fa-calendar-check-o pull-left" aria-hidden="true"> Due Date: <%= bullet.dueDate.toDateString() %></i><br>
                         <p>
-                            <a href="/bullet/<%= bullet._id %>" class="btn btn-primary">View Bullet</a>
+                            <a href="/bullet/<%= bullet._id %>" class="btn btn-xs btn-primary">View Bullet</a>
+                            <form style="display:inline" class="delete-form" action="/bullet/<%= bullet._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-xs btn-danger">Delete</button>
+                            </form>
                         </p>
+                        
+
                     
              
             </div>

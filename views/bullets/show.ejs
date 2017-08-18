@@ -1,37 +1,47 @@
 <% include ../partials/header %>
+
 <div class="container">
     <div class="row">
 
         <div class="col-md-12">
             <div class="panel panel-default">
-          <!-- Default panel contents -->
-          <div class="panel-heading"><strong><%= bullet.task %></strong></div>
-          <div class="panel-body">
-            <p> <%= bullet.description %></p>
-          </div>
-        
-          <!-- List group -->
-          <ul class="list-group">
-            <div class="text-right">
-            <a class="btn btn-success" href="/bullet/<%= bullet._id %>/notes/new">Add New Comment</a>
-            </div>
-            <% bullet.notes.forEach(function(note){ %>
-                <li class="list-group-item">
-                    <strong><%= note.author.username %></strong>
-                    <span class="pull-right"><%= note.dateCreated.toDateString() %>
-                    <%= note.text %>
-                    <div class="text-right">
-                        <a class="btn btn-xs btn-warning" href="/bullet/<%=bullet._id %>/notes/<%=note._id %>/edit">Edit</a>
-                        
-                        <form class="delete-form" action="/bullet/<%=bullet._id %>/notes/<%=note._id %>?_method=DELETE" method="POST">
-                            <input type="submit" class="btn btn-xs btn-danger" value="Delete">
-                        </form>
-                    </div>
-                </li>
-            <% }) %>
-        </ul>
+                <!--Default panel contents -->
+                <div class="panel-heading"><strong><%= bullet.task %></strong>
+                    <div class="pull-right">
+                        <a class="btn btn-xs btn-success" href="/bullet/<%= bullet._id %>/notes/new">Add New Comment</a>
+                    </div>                
+                </div>
+                <div class="text-right">DUe Date: <%= bullet.dueDate.toDateString() %></div>
+             </div>
         </div>
-            
+        <div class="col-md-4">
+            <div class="panel panel-green">
+
+                <p><%= bullet.description %></p>
+            </div>
+        </div>
+                <!--List group -->
+        <div class="col-md-8">
+                <ul class="list-group">
+                
+                    <% bullet.notes.forEach(function(note){ %>
+                        <li class="list-group-item">
+                            <span><strong><%= note.dateCreated.toDateString() %>:</strong>
+                            <%= note.text %>
+                            <div class="text-right">
+                                <a class="btn btn-xs btn-warning" href="/bullet/<%=bullet._id %>/notes/<%=note._id %>/edit">Edit</a>
+                                
+                                <form class="delete-form" action="/bullet/<%=bullet._id %>/notes/<%=note._id %>?_method=DELETE" method="POST">
+                                    <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                                </form>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ul>
+        
+        </div>
+    </div>
+</div>            
             
             
             
@@ -69,8 +79,6 @@
             <!--        </div>-->
             <!--    <% }) %>-->
             <!--</div>-->
-        </div>
-    </div>
-</div>
+
 
 <% include ../partials/footer %>
