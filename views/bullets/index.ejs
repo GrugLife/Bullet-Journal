@@ -10,25 +10,23 @@
             </p>
         </div>
     </header>
- 
-    <div class="container" style="display:flex; flex-wrap: wrap;">
+</div> 
+<div class="container">
+    <div class="row">
         <% bullets.forEach(function(bullet){ %>
-            <div class="col-md-4 col-sm-6>">
-
-                            <i class="fa fa-circle pull-left" aria-hidden="true"> <%= bullet.task %></i><br>
-                            <i class="fa fa-circle-o pull-left" aria-hidden="true"> <%= bullet.description.substring(0, 20) %>...</i><br>
-                            <i class="fa fa-calendar-o pull-left" aria-hidden="true"> Created Date: <%= bullet.createdDate.toDateString() %></i><br>
-                            <i class="fa fa-calendar-check-o pull-left" aria-hidden="true"> Due Date: <%= bullet.dueDate.toDateString() %></i><br>
-                        <p>
-                            <a href="/bullet/<%= bullet._id %>" class="btn btn-xs btn-primary">View Bullet</a>
-                            <form style="display:inline" class="delete-form" action="/bullet/<%= bullet._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-xs btn-danger">Delete</button>
-                            </form>
-                        </p>
-                        
-
-                    
-             
+            <div class="col-md-3 col-sm-6>">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <i class="fa fa-circle pull-left" aria-hidden="true"> <%= bullet.task %></i><br>
+                        <i class="fa fa-circle-o pull-left" aria-hidden="true"> <%= bullet.description.substring(0, 20) %>...</i><br>
+                        <i class="fa fa-calendar-o pull-left" aria-hidden="true"> Created Date: <%= bullet.createdDate.toDateString() %></i><br>
+                        <i class="fa fa-calendar-check-o pull-left" aria-hidden="true"> Due Date: <%= bullet.dueDate.toDateString() %></i><br>
+                        <a href="/bullet/<%= bullet._id %>" class="btn btn-xs btn-primary">View Bullet</a>
+                        <form class="delete-form" action="/bullet/<%= bullet._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    </li>
+                </ul>
             </div>
         <% }); %>
     </div>

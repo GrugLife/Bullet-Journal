@@ -2,7 +2,6 @@
 
 <div class="container">
     <div class="row">
-
         <div class="col-md-12">
             <div class="panel panel-default">
                 <!--Default panel contents -->
@@ -13,31 +12,29 @@
                 </div>
                 <div style="display: inline">
                     <%= bullet.description %>
-                        <div class="text-right"><strong>Due Date: <%= bullet.dueDate.toDateString() %></strong></div>
+                    <div class="text-right"><strong>Due Date: <%= bullet.dueDate.toDateString() %></strong></div>
                 </div>
              </div>
         </div>
-                <!--List group -->
+        <!--List group -->
         <div class="col-md-12">
-                <ul class="list-group">
-                
-                    <% bullet.notes.forEach(function(note){ %>
-                        <li class="list-group-item">
-                            <span><strong><%= note.dateCreated.toDateString() %>:</strong>
-                            <%= note.text %>
-                            <div class="text-right">
-                                <a class="btn btn-xs btn-warning" href="/bullet/<%=bullet._id %>/notes/<%=note._id %>/edit">Edit</a>
-                                
-                                <form class="delete-form" action="/bullet/<%=bullet._id %>/notes/<%=note._id %>?_method=DELETE" method="POST">
-                                    <input type="submit" class="btn btn-xs btn-danger" value="Delete">
-                                </form>
-                            </div>
-                        </li>
-                    <% }) %>
-                </ul>
-        
+            <ul class="list-group">
+                <% bullet.notes.forEach(function(note){ %>
+                    <li class="list-group-item">
+                        <span><strong><%= note.dateCreated.toDateString() %>:</strong>
+                        <%= note.text %>
+                        <div class="text-right">
+                            <a class="btn btn-xs btn-warning" href="/bullet/<%=bullet._id %>/notes/<%=note._id %>/edit">Edit</a>
+                            <form class="delete-form" action="/bullet/<%=bullet._id %>/notes/<%=note._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                        </div>
+                    </li>
+                <% }) %>
+            </ul>
         </div>
     </div>
+    <a class="pull-right btn btn-xs btn-info" href="/bullet/">back</a>
 </div>            
             
             
