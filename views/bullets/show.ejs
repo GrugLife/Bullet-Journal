@@ -11,17 +11,14 @@
                         <a class="btn btn-xs btn-success" href="/bullet/<%= bullet._id %>/notes/new">Add New Comment</a>
                     </div>                
                 </div>
-                <div class="text-right">DUe Date: <%= bullet.dueDate.toDateString() %></div>
+                <div style="display: inline">
+                    <%= bullet.description %>
+                        <div class="text-right"><strong>Due Date: <%= bullet.dueDate.toDateString() %></strong></div>
+                </div>
              </div>
         </div>
-        <div class="col-md-4">
-            <div class="panel panel-green">
-
-                <p><%= bullet.description %></p>
-            </div>
-        </div>
                 <!--List group -->
-        <div class="col-md-8">
+        <div class="col-md-12">
                 <ul class="list-group">
                 
                     <% bullet.notes.forEach(function(note){ %>
