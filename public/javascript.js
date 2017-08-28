@@ -25,14 +25,14 @@ document.addEventListener("dragover", function(event){
 
 document.addEventListener("dragenter", function(event){
     // highlight potential drop target when the draggable element enters it
-    if(event.target.className === "list-group"){
+    if(event.target.className === "dropzone"){
         event.target.style.background = "purple";
     }
 }, false);
 
 document.addEventListener("dragleave", function(event){
     // reset background of potential drop target when the draggable element leaves it
-    if(event.target.className === "list-group") {
+    if(event.target.className === "dropzone") {
         event.target.style.background = "";
     }
 }, false);
@@ -41,9 +41,13 @@ document.addEventListener("drop", function(event){
     // prevent defualt action (open as link for some elements)
     event.preventDefault();
     // move dragged elem to the seleceted drop target
-    if(event.target.className === "list-group"){
-        event.target.style.background = "";
-        dragged.parentNode.removeChild(dragged);
-        event.target.appendChild(dragged);
+    if(event.target.className === "dropzone"){
+        var data = event.dataTransfer.getData("text/plain");
+        event.target.textContent = data;
+        event.preventDefault()
+        // event.target.style.background = "";
+        // dragged.parentNode.removeChild(dragged);
+        // event.target.appendChild(dragged);
     }
 }, false);
+
