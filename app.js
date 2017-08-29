@@ -15,7 +15,8 @@ var express                 = require("express"),
 // requiring routes
 var noteRoutes              = require("./routes/note"),
     bulletRoutes            = require("./routes/bullet"),
-    indexRoutes             = require("./routes/index");
+    indexRoutes             = require("./routes/index"),
+    taskRoutes              = require("./routes/taskList");
 
 // mongoose.connect("mongodb://localhost/bullet");
 mongoose.connect("mongodb://greg:gruglife@ds017553.mlab.com:17553/bulletjournal");
@@ -49,6 +50,7 @@ app.use(function(req,res, next){
 app.use("/", indexRoutes);
 app.use("/bullet", bulletRoutes);
 app.use("/bullet/:id/notes", noteRoutes);
+app.use("/bullet/:id/tasks", taskRoutes)
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Server is running");
