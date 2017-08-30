@@ -18,6 +18,12 @@ var bulletSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Note"
         }
+    ],
+    taskList: [
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "taskList"
+        }
     ]
 });
 

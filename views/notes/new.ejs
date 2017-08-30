@@ -6,7 +6,10 @@
         <div style="width: 30%; margin: 25px auto;">
             <form action="/bullet/<%= bullet._id %>/notes" method="POST">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="note[text]" placeholder="text">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" rows="5" id="comment" type="text" name="note[text]" placeholder="text">
+                        
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit</button>

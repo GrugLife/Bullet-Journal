@@ -50,7 +50,7 @@ app.use(function(req,res, next){
 app.use("/", indexRoutes);
 app.use("/bullet", bulletRoutes);
 app.use("/bullet/:id/notes", noteRoutes);
-app.use("/bullet/:id/tasks", taskRoutes)
+app.use("/bullet/:id/tasks", taskRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Server is running");
