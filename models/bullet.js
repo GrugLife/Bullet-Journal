@@ -19,10 +19,10 @@ var bulletSchema = new mongoose.Schema({
             ref: "Note"
         }
     ],
-    taskList: [
+    tasks: [
         {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "taskList"
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Task"
         }
     ]
 });

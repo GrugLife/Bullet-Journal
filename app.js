@@ -10,13 +10,14 @@ var express                 = require("express"),
     Bullets                 = require("./models/bullet"),
     Note                    = require("./models/note"),
     User                    = require("./models/user"),
+    Task                    = require("./models/task"),
     seedDB                  = require("./seeds");
 
 // requiring routes
 var noteRoutes              = require("./routes/note"),
     bulletRoutes            = require("./routes/bullet"),
     indexRoutes             = require("./routes/index"),
-    taskRoutes              = require("./routes/taskList");
+    taskRoutes              = require("./routes/task");
 
 // mongoose.connect("mongodb://localhost/bullet");
 mongoose.connect("mongodb://greg:gruglife@ds017553.mlab.com:17553/bulletjournal");

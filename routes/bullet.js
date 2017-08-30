@@ -44,7 +44,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
 // SHOW ROUTE
 router.get("/:id", middleware.isLoggedIn, function(req, res){
     // find the bullet with the provided ID
-    Bullets.findById(req.params.id).populate("notes").exec(function(err, foundBullet){
+    Bullets.findById(req.params.id).populate("notes").populate("tasks").exec(function(err, foundBullet){
         if(err){
             console.log(err);
         } else {
