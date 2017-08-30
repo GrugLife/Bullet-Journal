@@ -73,7 +73,7 @@ router.delete("/:taskId", middleware.checkNoteOwernship, function(req, res){
             res.redirect("back");
         } else {
             req.flash("success", "TASK DELETED");
-            res.redirect("/bullet/");
+            res.redirect("/bullet/" + req.params.id);
         }
     });
 });
