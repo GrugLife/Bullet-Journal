@@ -8,6 +8,7 @@
                 <div class="panel-heading"><strong><%= bullet.task %></strong>
                     <div class="pull-right">
                         <a class="btn btn-xs btn-success" href="/bullet/<%= bullet._id %>/notes/new">Add New Comment</a>
+                        <a class="btn btn-xs btn-success" href="/bullet/<%= bullet._id %>/tasks/new">Add New Task</a>
                     </div>                
                 </div>
                 <div style="display: inline">
@@ -40,7 +41,9 @@
                     <li class="list-group-item">
                          <div class="checkbox">
                            <label>
-                             <input type="checkbox" class="strikethrough" value="1"><span><%= task.task %></span>
+                             <form action="/bullet/<%= bullet._id %>/tasks/<%= task._id %>?_method=PUT" method="POST">
+                                 <input type="checkbox" class="strikethrough" value="<%= task.completed %>" onchange="doalert(this)" name="task[completed]" placeholder="task"><span><%= task.task %></span>
+                             </form>
                            </label>
                          </div>
                         <div class="text-right">
@@ -57,7 +60,15 @@
     <a class="pull-right btn btn-xs btn-info" href="/bullet/">back</a>
 </div>            
             
-            
+<script>
+    function doalert(checkboxElem) {
+      if (checkboxElem.checked) {
+        this.task.completed = true
+      } else {
+        alert ("bye");
+      }
+    }
+</script>
             
             
             

@@ -45,8 +45,9 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
 router.get("/:id", middleware.isLoggedIn, function(req, res){
     // find the bullet with the provided ID
     Bullets.findById(req.params.id).populate("notes").populate("tasks").exec(function(err, foundBullet){
+        console.log(req.params.task)
         if(err){
-            console.log(err);
+            // console.log(err);
         } else {
             // render show template with that bullet
             res.render("bullets/show", {bullet: foundBullet});
