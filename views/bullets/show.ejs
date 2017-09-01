@@ -60,50 +60,5 @@
     <a class="pull-right btn btn-xs btn-info" href="/bullet/">back</a>
 </div>            
             
-<script>
-    function doalert(checkboxElem) {
-      if (checkboxElem.checked) {
-        this.task.completed = true
-      } else {
-        alert ("bye");
-      }
-    }
-</script>
-            
-            
-            
-            <!--<p class="lead">Bullet Journal</p>-->
-            <!--<div class="thumbnail">-->
-            <!--    <div class="caption-full">-->
-            <!--        <h4><a><%=bullet.task%></a></h4>-->
-            <!--        <p><%= bullet.description %></p>-->
-            <!--            <a class="btn btn-xs btn-warning" href="/bullet/<%= bullet._id %>/edit">Edit</a>-->
-            <!--            <form id="delete-form" action="/bullet/<%= bullet._id %>?_method=DELETE" method="POST">-->
-            <!--                <button class="btn btn-xs btn-danger">Delete</button>-->
-            <!--            </form>-->
-            <!--    </div>-->
-            <!--</div>-->
-            <!--<div class="well">-->
-            <!--    <div class="text-right">-->
-            <!--        <a class="btn btn-success" href="/bullet/<%= bullet._id %>/notes/new">Add New Comment</a>-->
-            <!--    </div>-->
-            <!--    <hr>-->
-            <!--    <% bullet.notes.forEach(function(note){ %>-->
-            <!--        <div class="row">-->
-            <!--            <div class="col-md-12">-->
-            <!--                <strong><%= note.author.username %></strong>-->
-            <!--                <span class="pull-right"><%= note.dateCreated.toDateString() %></span>-->
-            <!--                <p>-->
-            <!--                    <%= note.text %> -->
-            <!--                </p>-->
-            <!--                <a class="btn btn-xs btn-warning" href="/bullet/<%=bullet._id %>/notes/<%=note._id %>/edit">Edit</a>-->
-            <!--                <form id="delete-form" action="/bullet/<%=bullet._id %>/notes/<%=note._id %>?_method=DELETE" method="POST">-->
-            <!--                    <input type="submit" class="btn btn-xs btn-danger" value="Delete">-->
-            <!--                </form>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    <% }) %>-->
-            <!--</div>-->
-
 
 <% include ../partials/footer %>
