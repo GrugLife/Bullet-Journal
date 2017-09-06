@@ -8,13 +8,6 @@
                 <div class="form-group">
                     <input class="form-control" type="text" value="<%= task.task %>" name="task[task]" placeholder="task">
                 </div>
-                <!--<div class="checkbox">-->
-                <!--   <label>-->
-                <!--     <form action="/bullet/<%= bullet_id %>/tasks/<%= task._id %>?_method=PUT" method="POST">-->
-                <!--         <input type="checkbox" class="strikethrough" value="<%= task.completed %>" onchange="doalert(this)" name="task[completed]" placeholder="task"><span><%= task.task %></span>-->
-                <!--     </form>-->
-                <!--   </label>-->
-                <!--</div>-->
               <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit</button>
                 </div>
@@ -23,26 +16,5 @@
         </div>
     </div>
 </div>
-<script>
-    function doalert(checkboxElem) {
-        console.log("hello worlds")
-      if (checkboxElem.checked) {
-          db.tasks.updateOne(
-              { task: this },
-              {
-                  $set: {completed: true}
-              }
-        )
-    } else {
-          db.tasks.updateOne(
-              { task: this },
-              {
-                  $set: {completed: false}
-              }
-        )
-      }
-    }
-</script>
-           
 
 <% include ../partials/footer %>

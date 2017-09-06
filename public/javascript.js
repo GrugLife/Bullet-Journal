@@ -1,4 +1,6 @@
 var dragged;
+var Bullets = require("../models/bullet");
+var Task = require("../models/task");
 
 // events fired on the draggable target
 document.addEventListener("drag", function(event){
@@ -51,3 +53,12 @@ document.addEventListener("drop", function(event){
     }
 }, false);
 
+function doalert(checkboxElem) {
+  if (checkboxElem.checked) {
+      console.log(Task.id);
+  } else {
+      alert("unchecked");
+  }
+}
+
+module.exports = doalert;

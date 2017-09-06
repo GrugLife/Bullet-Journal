@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Bullets = require("../models/bullet");
+var Task = require("../models/task");
 var middleware = require("../middleware");
 
 // INDEX ROUTE
@@ -46,7 +47,7 @@ router.get("/:id", middleware.isLoggedIn, function(req, res){
     // find the bullet with the provided ID
     Bullets.findById(req.params.id).populate("notes").populate("tasks").exec(function(err, foundBullet){
         if(err){
-            console.log(err);
+            // console.log(err);
         } else {
             // render show template with that bullet
             res.render("bullets/show", {bullet: foundBullet});
@@ -78,6 +79,33 @@ router.put("/:id", middleware.checkBulletOwnership, function(req, res){
         }
     });
 });
+
+// #############################################################
+// Routes to edit and update task completion using the check box
+// #############################################################
+
+// TASK EDIT ROUTE
+router.get("/:id", middleware.isLoggedIn, function(req, res){
+    Task.findById(req.params.id, function(err, task){
+      if(err){
+          res.redirect("back");
+      } else {
+          res.redirect("bullets/show", {bullet_id: req.params.id, task: task});
+      }
+   });
+});
+
+// TASK UPDATE ROUTE
+router.put("/:id", function(req, res){
+    Task.findByIdAndUpdate(req.params.taskId, req.body.completed, function(err, task){
+        if(err){
+            res.render("bullets/show");
+        } else {
+            res.redirect("/bullet/" + req.params.id);
+        }
+    });
+});
+
 
 // DESTROY ROUTE
 router.delete("/:id", middleware.checkBulletOwnership, function(req, res){
